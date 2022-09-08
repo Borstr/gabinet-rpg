@@ -1,0 +1,65 @@
+fragment LandingPage on LandingPage {
+  stage
+  publishedAt
+  updatedAt
+  createdAt
+  remoteId: id
+  heroHeading
+  heroSubheading
+  aboutHeading
+  modelsHeading
+  modelsDescription
+  aboutDescription
+  services {
+    ... on Service {
+      stage
+      id
+      serviceTitle
+      serviceDescriptions
+    }
+  }
+  models {
+    ... on Model {
+      stage
+      id
+      modelHeading
+      modelDescriptions
+    }
+  }
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  heroImage {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+  }
+  scheduledIn {
+    ... on ScheduledOperation {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+}
